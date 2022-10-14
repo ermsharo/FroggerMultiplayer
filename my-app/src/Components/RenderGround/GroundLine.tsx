@@ -4,7 +4,7 @@ const DisplayGrid = styled.div`
 
 display: grid;
 grid-template-columns: repeat(20, 1fr);
-width: 60%;
+width: 40%;
 margin:auto;
 `;
 
@@ -18,14 +18,28 @@ border: 1px solid red;
 
 const matrixDimension = 20;
 
-let createMatrix = (matrixDimension:number) =>{
-  return Array(matrixDimension).fill(null).map(() => Array(matrixDimension).fill(0));
+const createMatrix : any = (matrixDimension: number) => {
+    let col = []; 
+    let lin = []; 
+
+    for (let i = 0; i < matrixDimension; i++) {
+        lin.push(false);
+    }
+
+    for (let j = 0; j < matrixDimension; j++) {
+        col.push(lin)
+    }
+ 
+    console.log("col", col);
+    return col;
 }
 
 let matrix : any = createMatrix(matrixDimension);
-matrix[1][0] = true;
-
+console.log("Matrix here")
+matrix[0][2] = true;
 export default  function Ground() {
+
+
   return (
     <DisplayGrid>
  {matrix.map((item: any) => (
