@@ -16,13 +16,14 @@ border: 1px solid red;
 
 
 
-const matrixDimension = 20;
+const matrixDimensionWidth = 22;
+const matrixDimensionHeight = matrixDimensionWidth;
 
 let createMatrix = (matrixDimension:number) =>{
   return Array(matrixDimension).fill(null).map(() => Array(matrixDimension).fill(0));
 }
 
-let matrix : any = createMatrix(matrixDimension);
+let matrix : any = createMatrix(matrixDimensionWidth);
 matrix[1][0] = true;
 
 export default  function Ground() {
