@@ -1,23 +1,15 @@
-import styled from 'styled-components';
-import Tile from '../RenderTile/Tile';
-const DisplayGrid = styled.div`
+let createMatrix = () => {
+  return Array(5)
+    .fill(null)
+    .map(() => Array(5).fill(0));
+};
+//console.log("HERE");
+let matrix = createMatrix();
+matrix[1][1] = 99;
+matrix[1][2] = 99;
+console.table(matrix);
 
-display: grid;
-grid-template-columns: repeat(22, 1fr);
-width: 60%;
-margin:auto;
-`;
-
-const DisplayTile = styled.div`
-width: 100%;
-aspect-ratio: 1 / 1;
-border: 1px solid red;
-`;
-
-
-
-const matrixDimensionWidth = 20;
-const matrixDimensionHeight = matrixDimensionWidth;
+let textToMatrix;
 
 let MapLines = [
   "TEETEETEETEETEETEETEET",
@@ -82,11 +74,11 @@ let MapLines = [
   "RTTTBTTTBTTTTBTTTBTTTR",
 ];
 
-let fillObj = (typeOfTile : any, tyle: any) => {
+let fillObj = (typeOfTile, tyle) => {
   return tyle;
 };
 
-let fillLine = (line: any) => {
+let fillLine = (line) => {
   let ObjectLines = [];
 
   for (let j = 0; j < line.length; j++) {
@@ -95,7 +87,7 @@ let fillLine = (line: any) => {
   return ObjectLines;
 };
 
-let fillMatrix = (MapLines: any) => {
+let fillMatrix = (MapLines) => {
   let i = 0;
   let objMatrix = [];
 
@@ -107,24 +99,6 @@ let fillMatrix = (MapLines: any) => {
   return objMatrix;
 };
 
+console.table(fillMatrix(MapLines));
 
-let createMatrix = (matrixDimension:number) =>{
-  return Array(matrixDimension).fill(null).map(() => Array(matrixDimension).fill(0));
-}
-
-let matrix : any = createMatrix(matrixDimensionWidth);
-matrix[1][0] = true;
-
-export default  function Ground() {
-  return (
-    <DisplayGrid>
- {fillMatrix(MapLines).map((item: any) => (
-            item.map((tile: any) => (
-           <Tile  tile = {tile}/>
-                ))
-              ))}
-    </DisplayGrid>
-  );
-}
-
-
+//console.log(MapLines);

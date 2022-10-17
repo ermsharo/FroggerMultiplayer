@@ -115,7 +115,7 @@ let createMatrix = (matrixDimension:number) =>{
 let matrix : any = createMatrix(matrixDimensionWidth);
 matrix[1][0] = true;
 
-export default  function Ground() {
+export default  function Frog() {
   return (
     <DisplayGrid>
  {fillMatrix(MapLines).map((item: any) => (
